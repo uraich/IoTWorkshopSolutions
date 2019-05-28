@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+# fibonacci.py
+# calculates the fibonacci numbers up to an iteration of 20
+# U. Raich 26.5.2019
+# this program is part of the workshop on IoT at the
+# African Internet Summit 2019, Kampala, Uganda
+# the program is released under GPL
+
+def fibonacci(noOfIterations):
+    if noOfIterations < 1:
+        raise ValueError("no of iterations too small")
+
+    print("Fibonacci numbers of to an interation of 20")
+    fib=[]
+    fib.append(0)
+    if noOfIterations == 1:
+        print("%d"%0)
+        return fib
+    fib.append(1)
+    if noOfIterations == 2:
+        print("%d %d"%(0,1))
+        return fib
+
+    print("%d %d"%(fib[0],fib[1]),end='')
+
+    for i in range (0,noOfIterations-2):
+        fib.append(fib[i] + fib[i+1])
+        print("%d " % fib[i+2], end='')
+
+    print()
+    return fib
+
+if __name__ == '__main__':
+    print(fibonacci(20))
