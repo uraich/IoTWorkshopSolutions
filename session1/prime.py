@@ -10,7 +10,8 @@ prime = int(sys.argv[1])
 for i in range(2,prime//2):
     if (prime%i == 0):
         print("Not a prime number")
-        print("You can divide it by %d" %i)
+        print("You can divide it by %d:" %i)
+        print("%d / %d = %d" % (prime,i,prime//i)) 
         sys.exit()
 print("%d is a prime number" %prime)
 

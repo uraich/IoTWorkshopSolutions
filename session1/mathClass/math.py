@@ -10,6 +10,7 @@
 from mathClass import MathFuncs
 
 myMath = MathFuncs()
+#myMath.mathPrint(True)
 print("Trying fibonacci(0)")
 try:
     myMath.fibonacci(0)

@@ -9,6 +9,9 @@
 # the program is released under GPL
 
 class MathFuncs:
+    def __init__(self):
+        self.print=False
+    
     #
     # the methodod calculating the factorial of a number
     #
@@ -20,7 +23,8 @@ class MathFuncs:
         fact = 1
         for i in range(1,number+1):
             fact=fact*i
-        print("Factorial of %d: %d"%(number,fact))
+        if (self.print):
+            print("Factorial of %d: %d"%(number,fact))
         return fact
     #
     # the method testing if a number is a prime number
@@ -32,8 +36,10 @@ class MathFuncs:
             return True
         for i in range(2,testPrime//2+1):
             if (testPrime%i == 0):
-                # print("%d is not a prime number"%testPrime)
-                # print("You can divide it by %d" %i)
+                if (self.print):
+                    print("%d is not a prime number"%testPrime)
+                    print("You can divide it by %d:" %i)
+                    print("%d / %d = %d" %(testPrime,i,testPrime//i))
                 return False
         # print("%d is a prime number" %testPrime)
         return True
@@ -50,15 +56,26 @@ class MathFuncs:
             return fib
         fib.append(1)
         if noOfIterations == 2:
-            print("%d %d"%(0,1))
+            if (self.print):
+                print("%d %d"%(0,1))
             return fib
-        print("Fibonacci numbers of to an interation of 20")
-        print("%d %d "%(fib[0],fib[1]),end='')
+        if(self.print):
+            print("Fibonacci numbers of to an interation of %d"%noOfIterations)
+            print("%d %d "%(fib[0],fib[1]),end='')
 
         for i in range (0,noOfIterations-2):
             fib.append(fib[i] + fib[i+1])
-            print("%d " % fib[i+2], end='')
+            if (self.print):
+                print("%d " % fib[i+2], end='')
             
-        print()
+        if (self.print):
+            print()
         return fib
 
+    #
+    # switch printing on or off
+    #
+    def mathPrint(self,onOff):
+        if (onOff):
+            print("Printing switched on")
+        self.print=onOff
